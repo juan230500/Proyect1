@@ -12,8 +12,8 @@ public class Matriz_puntos {
 		//como se agrega al inico de una lista se
 		// debe sacar el complemento para que las x,y
 		// más altas se agregen primero
-		 for (int i=dim;i>=0;i--) {
-			 for (int j=dim;j>=0;j--) {
+		 for (int i=dim-1;i>=0;i--) {
+			 for (int j=dim-1;j>=0;j--) {
 				 Puntos.insert(p.generate(j,i)); 
 			 }
 		 }
@@ -51,26 +51,27 @@ public class Matriz_puntos {
  }
  
  public List recorrido(int ubi) { //,List aco, Linea ig
+	 this.show();
 	 List aco=new List();
 	 Punto Pact=this.get(ubi);
 	 List L_rest=Pact.getLineas();
 	 Linea Lact=(Linea)L_rest.get(0);
 	 
-	 
 		 System.out.println("#");
 		 aco.insert(Pact.getXY());
-		 
+		 System.out.println(Pact.getXY());
 		 Pact=Lact.conecta(ubi);
-		 Linea ig=Lact;
+		 Pact=this.get(11);
+		 System.out.println(Pact.getX());
+		 
+		 /*Linea ig=Lact;
 		 L_rest=(Pact.get_rest(ig));
-		 /*if (!L_rest.isEmpty()) 
-		 Lact=(Linea)L_rest.get(0);
+		 if (!L_rest.isEmpty()) 
+		 Lact=(Linea)L_rest.get(0);*/
 	 
-	 
+	aco.insert(Pact.getXY());
 	aco.print();
-	return aco;*/
-	return null;
-	 
+	return aco;
  }
  
  
