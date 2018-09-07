@@ -9,9 +9,12 @@ public class Matriz_puntos {
 		 this.dim=dim;
 		 this.Puntos=new List();
 		 Punto p=new Punto(0,0);
-		 for (int i=0;i<this.dim;i++) {
-			 for (int j=0;j<this.dim;j++) {
-				 Puntos.insert(p.generate(i, j));
+		//como se agrega al inico de una lista se
+		// debe sacar el complemento para que las x,y
+		// más altas se agregen primero
+		 for (int i=dim;i>=0;i--) {
+			 for (int j=dim;j>=0;j--) {
+				 Puntos.insert(p.generate(j,i)); 
 			 }
 		 }
 		}
