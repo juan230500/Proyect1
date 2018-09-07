@@ -123,6 +123,18 @@ public class List {
 		  return false;
 	  }
 	  
+	  public int  find(Object o) {
+		  Node tmp=this.first;
+		  int c=0;
+		  while (tmp!=null) {
+			  if (tmp.getInfo()==o) {
+				  return c;
+			  }
+			  tmp=tmp.getNext();
+		  }
+		  return -1;
+	  }
+	  
 	  public void extract_o(Object o) {
 		    Node tmp=this.first;
 		    while(tmp!=null) {

@@ -34,7 +34,7 @@ public class Matriz_puntos {
  public void show() {
 	 for (int i=0;i<this.dim;i++) {
 		 for (int j=0;j<this.dim;j++) {
-			 System.out.print(this.get(i*10+j).getLineas()+"\t");
+			 System.out.print(this.get(j*10+i).getLineas()+"\t");
 		 }
 		 System.out.print("\n");
 	 }
@@ -43,33 +43,40 @@ public class Matriz_puntos {
  public void show2() {
 	 for (int i=0;i<this.dim;i++) {
 		 for (int j=0;j<this.dim;j++) {
-			 List tmp=this.get(i*10+j).getLineas();
+			 List tmp=this.get(j*10+i).getLineas();
 			 tmp.print();
 		 }
 		 System.out.print("\n");
 	 }
  }
  
- public List recorrido(int ubi) { //,List aco, Linea ig
-	 Linea ig;
-	 List aco=new List();
+ public List recorrido(int ubi,List aco, Linea ig,int cont) {
 	 Punto Pact=this.get(ubi);
-	 List L_rest=Pact.getLineas();
-	 Linea Lact=(Linea)L_rest.get(0);
+	 List L_rest=Pact.get_rest(ig);
 	 
-	while(L_rest.getSize()>0) { 
-		 aco.insert(Pact.getXY());
-		 Pact=Lact.conecta(Pact.getXY());
+	 if (L_rest.getSize()>1+cont) {
+		 recorrido(ubi,aco.copy(),ig,cont+1);
+	 }
+	 
+	 Linea Lact=(Linea)L_rest.get(cont);
+	 
+	 while(L_rest.getSize()>0) {
 		 
+		 int tmp=aco.find(Pact.getXY());
+		 if (tmp!=-1){
+			aco.print();
+			System.out.println("cierra");
+			return aco;
+		 }
+		 
+		 aco.insert(Pact.getXY());
+		 
+		 Pact=Lact.conecta(Pact.getXY());
 		 ig=Lact;
 		 L_rest=(Pact.get_rest(ig));
-		 L_rest.print();
 		
 		 if (!L_rest.isEmpty()) 
 		 Lact=(Linea)L_rest.get(0);}
-		 
-		 
-		 
 		 
 	aco.insert(Pact.getXY());
 	aco.print();
