@@ -1,5 +1,5 @@
 package geo;
-import listas.List;
+import listas.*;
 
 public class Punto {
 	 int x;
@@ -12,12 +12,48 @@ public class Punto {
 		 this.y=yi;
 		 this.lineas= new List();
 	 }
-	 
+	 /**
+	  * Genera un nuevo punto a partir de una instancia "en limpio"
+	  * para hacer varios puntos con nuevas coordenadas
+	  * sin necesidad de instanciar cada uno por separado.
+	  * Especialmente útil para contriur una matriz de puntos
+	  * 
+	  * @author juan
+	  * @param xi La x que se desea en el nuevo punto
+	  * @param yi La y que se desea en el nuevo punto
+	  * @return p Un nuevo punto instanciado con la (x,y) deseada
+	  */
 	 public Punto generate(int xi, int yi) {
 		 Punto p=new Punto(xi,yi);
 		 return p;
 	 }
 	 
+	 /**
+	  * Función que servirá para realizar recorridos
+	  * al decirle a un recorrido que ignore su linea de origen
+	  * y se concentre en las que le falta recorrer en el nuevo punto
+	  * 
+	  * @author juan
+	  * 
+	  * @param ig Linea a ignorar
+	  * @return lt Lista con todas las líneas del punto
+	  * 		menos la linea a ignorar
+	  */
+	 public List get_rest(Linea ig) {
+		 List lt=new List();
+		 Node tmp=this.lineas.getFirst();
+		 while (tmp!=null) {
+			 if ((Linea)tmp.getInfo()!=ig) {
+				 lt.insert(tmp.getInfo());
+			 }
+		 }
+		 return lt;
+	 }
+	 
+	 /**
+	  * Simplemente hace un print de un par ordenado (x,y)
+	  * @author juan
+	  */
 	 public void show() {
 			System.out.println("("+this.x+","+this.y+")");
 		}

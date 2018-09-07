@@ -13,7 +13,16 @@ public Linea( int x1,  int y1,  int x2,  int y2, Matriz mat, Matriz_puntos mp) {
 	mp.add(x1*10+y1,this);
 	mp.add(x2*10+y2,this);
 }
-
+/**
+ * Dado un extremo de una línea este método
+ * retorna el otro extremo tipo Punto
+ * 
+ * @author juan
+ * @param x1
+ * @param y1
+ * @return El otro extremo de la línea o un null 
+ * si el punto dado no pertenece a la línea
+ */
 public Punto conecta(int x1,int y1) {
 	if (x1==this.inicio.getX() && y1==this.inicio.getY()) {
 		return this.fin;
@@ -25,7 +34,9 @@ public Punto conecta(int x1,int y1) {
 		return null;
 	}
 }
-
+/**
+ * Hace un print del inicio y final de la linea
+ */
 public void show() {
 	System.out.print("incio:("+inicio.getX()+","+inicio.getY()+")"+
 	"final:("+fin.getX()+","+fin.getY()+")");
