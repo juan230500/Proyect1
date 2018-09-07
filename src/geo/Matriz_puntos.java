@@ -34,7 +34,7 @@ public class Matriz_puntos {
  public void show() {
 	 for (int i=0;i<this.dim;i++) {
 		 for (int j=0;j<this.dim;j++) {
-			 System.out.print(this.get(i*10+j)+"\t");
+			 System.out.print(this.get(i*10+j).getLineas()+"\t");
 		 }
 		 System.out.print("\n");
 	 }
@@ -51,24 +51,26 @@ public class Matriz_puntos {
  }
  
  public List recorrido(int ubi) { //,List aco, Linea ig
-	 this.show();
+	 Linea ig;
 	 List aco=new List();
 	 Punto Pact=this.get(ubi);
 	 List L_rest=Pact.getLineas();
 	 Linea Lact=(Linea)L_rest.get(0);
 	 
-		 System.out.println("#");
+	while(L_rest.getSize()>0) { 
 		 aco.insert(Pact.getXY());
-		 System.out.println(Pact.getXY());
-		 Pact=Lact.conecta(ubi);
-		 Pact=this.get(11);
-		 System.out.println(Pact.getX());
+		 Pact=Lact.conecta(Pact.getXY());
 		 
-		 /*Linea ig=Lact;
+		 ig=Lact;
 		 L_rest=(Pact.get_rest(ig));
+		 L_rest.print();
+		
 		 if (!L_rest.isEmpty()) 
-		 Lact=(Linea)L_rest.get(0);*/
-	 
+		 Lact=(Linea)L_rest.get(0);}
+		 
+		 
+		 
+		 
 	aco.insert(Pact.getXY());
 	aco.print();
 	return aco;
