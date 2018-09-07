@@ -46,8 +46,16 @@ public class Punto {
 			 if ((Linea)tmp.getInfo()!=ig) {
 				 lt.insert(tmp.getInfo());
 			 }
+			 tmp=tmp.getNext();
 		 }
 		 return lt;
+	 }
+	 /**
+	  * sirve para ver el punto como un entero de dos cifras
+	  * @return el par ordenado escrito como un entero de dos cifras
+	  */
+	 public int getXY() {
+		 return this.x*10+this.y;
 	 }
 	 
 	 /**

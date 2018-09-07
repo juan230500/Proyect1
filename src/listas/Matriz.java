@@ -92,7 +92,7 @@ public class Matriz extends List{
 				return aco;
 			}
 			aco.insert(a*10+b);
-			act=prev.conecta(a, b);
+			act=prev.conecta(a*10+ b);
 			a=act.getX();
 			b=act.getY();
 			dat=((List)this.get(b, a)).copy();

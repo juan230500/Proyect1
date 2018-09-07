@@ -49,4 +49,29 @@ public class Matriz_puntos {
 		 System.out.print("\n");
 	 }
  }
+ 
+ public List recorrido(int ubi) { //,List aco, Linea ig
+	 List aco=new List();
+	 Punto Pact=this.get(ubi);
+	 List L_rest=Pact.getLineas();
+	 Linea Lact=(Linea)L_rest.get(0);
+	 
+	 
+		 System.out.println("#");
+		 aco.insert(Pact.getXY());
+		 
+		 Pact=Lact.conecta(ubi);
+		 Linea ig=Lact;
+		 L_rest=(Pact.get_rest(ig));
+		 /*if (!L_rest.isEmpty()) 
+		 Lact=(Linea)L_rest.get(0);
+	 
+	 
+	aco.print();
+	return aco;*/
+	return null;
+	 
+ }
+ 
+ 
 }
