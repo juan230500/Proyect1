@@ -76,7 +76,8 @@ public class Matriz extends List{
 	}
 	
 	public List recorrer(List aco,int a, int b,int cont, Linea orig) {
-		List dat=(List)this.get(b, a);
+		List dat=((List)this.get(b, a)).copy();
+		//dat.extract_o(orig);
 		if (1+cont<dat.getSize()) {
 			recorrer(aco.copy(),a,b,cont+1,orig);
 		}
@@ -93,7 +94,7 @@ public class Matriz extends List{
 			act=prev.conecta(a, b);
 			a=act.getX();
 			b=act.getY();
-			dat=(List)this.get(b, a);
+			dat=((List)this.get(b, a)).copy();
 			while (prev==(Linea)dat.get(cont) && dat.getSize()>1) {
 				cont++;}
 			prev=(Linea)dat.get(cont);

@@ -125,12 +125,21 @@ public class List {
 	  
 	  public void extract_o(Object o) {
 		    Node tmp=this.first;
-		    while (tmp.getNext().getInfo()!=o) {
-		    	tmp=tmp.getNext();
+		    while(tmp!=null) {
+		    	 if (tmp.getInfo()==o) {
+				    	this.first=(this.first.getNext());
+				    	tmp=this.first;
+				    	this.size--;
+				    	return;
+				    }
+		    	 else if (tmp.getNext()!=null) {
+		    		if (tmp.getNext().getInfo()==o) {
+				    	tmp.setNext(tmp.getNext().getNext());
+				    	this.size--;
+				    	return;}
+			    }
+			    tmp=tmp.getNext();
 		    }
-		    tmp.setNext(tmp.getNext().getNext());
-		    this.size--;
-
 		  }
 	}
 
