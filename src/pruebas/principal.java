@@ -15,7 +15,7 @@ public class principal {
 	
 	
 	public static void main(String[] args) {
-		List l1=new List();
+		/*List l1=new List();
 		Matriz M1=new Matriz(6,6);
 		Matriz M2=new Matriz(2,2);
 		Linea lia=new Linea(0,1,1,0,M2);
@@ -26,7 +26,12 @@ public class principal {
 		Linea li4=new Linea(0,1,0,0,M1);
 		//Linea li5=new Linea(1,3,1,0,M1);
 		M1.show2();
-		M1.recorrer(l1,0,1,0,lia);
+		M1.recorrer(l1,0,1,0,lia);*/
+		
+		Matriz_puntos Mp1=new Matriz_puntos(7);
+		Matriz M1=new Matriz(6,6);
+		Linea li1=new Linea(0,0,1,1,M1,Mp1);
+		Mp1.show2();
 		
 	}
 }

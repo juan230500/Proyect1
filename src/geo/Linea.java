@@ -5,11 +5,13 @@ public class Linea{
 private Punto inicio;
 private Punto fin;
 
-public Linea( int x1,  int y1,  int x2,  int y2, Matriz mat) {
+public Linea( int x1,  int y1,  int x2,  int y2, Matriz mat, Matriz_puntos mp) {
 	this.inicio= new Punto(x1,y1);
 	this.fin=new Punto(x2,y2);
 	mat.add(this,x1,y1);
 	mat.add(this,x2,y2);
+	mp.add(x1*10+y1,this);
+	mp.add(x2*10+y2,this);
 }
 
 public Punto conecta(int x1,int y1) {
