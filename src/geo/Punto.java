@@ -6,11 +6,13 @@ public class Punto {
 	 int y;
 	 boolean bloqueo;
 	 List lineas;
+	 Linea precedente;
 	 
 	 public Punto(int xi,int yi) {
 		 this.x=xi;
 		 this.y=yi;
 		 this.lineas= new List();
+		 
 	 }
 	 /**
 	  * Genera un nuevo punto a partir de una instancia "en limpio"
@@ -91,6 +93,12 @@ public class Punto {
 
 	public void setLineas(List lineas) {
 		this.lineas = lineas;
+	}
+	public Linea getPrecedente() {
+		return precedente;
+	}
+	public void setPrecedente(Linea precedente) {
+		this.precedente = precedente;
 	}
 	}
 

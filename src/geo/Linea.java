@@ -1,13 +1,10 @@
 package geo;
-import listas.*;
 
 public class Linea{
 private Punto inicio;
 private Punto fin;
 
-public Linea( int x1,  int y1,  int x2,  int y2, Matriz mat, Matriz_puntos mp) {
-	mat.add(this,x1,y1);
-	mat.add(this,x2,y2);
+public Linea( int x1,  int y1,  int x2,  int y2, Matriz_puntos mp) {
 	this.inicio= mp.get(x1*10+y1);
 	this.fin=mp.get(x2*10+y2);
 	mp.add(x1*10+y1,this);
