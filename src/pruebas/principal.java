@@ -29,18 +29,19 @@ public class principal {
 		M1.recorrer(l1,0,1,0,lia);*/
 		
 		Matriz_puntos Mp1=new Matriz_puntos(4);
-		Matriz M1=new Matriz(6,6);
 		
 		Matriz_puntos Mp2=new Matriz_puntos(2);
 		Linea lia=new Linea(0,1,1,0,Mp2);
 		List l1=new List();
 		
-		Linea li1=new Linea(0,0,1,1,Mp1);
-		Linea li2=new Linea(0,0,2,2,Mp1);
-		Linea li3=new Linea(2,2,3,0,Mp1);
-		Linea li4=new Linea(3,0,0,0,Mp1);
+		Linea li1=new Linea(0,0,1,0,Mp1);
+		Linea li2=new Linea(1,0,1,1,Mp1);
+		Linea li3=new Linea(1,1,0,1,Mp1);
+		Linea li4=new Linea(0,0,1,2,Mp1);
+		Linea li5=new Linea(1,2,2,2,Mp1);
+		Linea li6=new Linea(0,0,2,3,Mp1);
 		Mp1.show2();
-		Mp1.recorrido(0,l1,lia,0);
+		Mp1.recorrido(00,l1,li1,0);
 		
 	}
 }
